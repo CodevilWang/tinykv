@@ -1,0 +1,11 @@
+syntax = 'proto2';
+package TinyKv;
+message ReqKey {
+    required int64 qid = 1;
+    repeated string key = 2;
+};
+
+message RespValue {
+    required int32 status = 1;
+    repeated string value = 2;
+};

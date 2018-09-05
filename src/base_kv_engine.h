@@ -1,5 +1,7 @@
-#ifndef  TINY_KV_SRC_PLAIN_KV_ENGINE_H_
-#define  TINY_KV_SRC_PLAIN_KV_ENGINE_H_
+// Copyright 2018 All Rights Reserved.
+// Author: codevil.w.m@gmail.com (M W)
+#ifndef  TINY_KV_SRC_BASE_KV_ENGINE_H_
+#define  TINY_KV_SRC_BASE_KV_ENGINE_H_
 #include <stdio.h>
 #include <string>
 #include <unordered_map>
@@ -25,6 +27,7 @@ class PlainEngine : public BaseKVEngine {
         } 
     private:
         std::unordered_map<std::string, std::string> _map;
-
 };
-}  // namespace TinyKV
+
+#endif  // BASE_KV_ENGINE_H_
+/* vim: set expandtab ts=2 sw=2 sts=2 tw=80: */
