@@ -5,11 +5,13 @@
 #include "plain_kv_engine.h" 
 
 int main() {
-    TinyKV::TinyKV<TinyKV::PlainEngine> kv;
+    TINYKV::TinyKV<TINYKV::PlainEngine> kv;
     kv.insert("abc", "def");
     kv.insert("xyz", "cc");
     std::string value;
     kv.get("abc", &value);
+    printf("%s\n", value.c_str());
+    kv.get("xyz", &value);
     printf("%s\n", value.c_str());
     return 0;
 }

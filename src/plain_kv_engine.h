@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <string>
 #include <unordered_map>
-namespace TinyKV {
+#include "base_kv_engine.h" 
+namespace TINYKV {
 class PlainEngine : public BaseKVEngine {
     public:
         int insert(const std::string& key, const std::string& value) {
@@ -27,4 +28,5 @@ class PlainEngine : public BaseKVEngine {
         std::unordered_map<std::string, std::string> _map;
 
 };
-}  // namespace TinyKV
+}  // namespace TINYKV
+#endif

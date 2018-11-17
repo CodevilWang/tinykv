@@ -1,7 +1,7 @@
 #ifndef  TINY_KV_SRC_TINY_KV_H_
 #define  TINY_KV_SRC_TINY_KV_H_
 #include <string>
-namespace TinyKV {
+namespace TINYKV {
 // support multi KVEngine
 template<class T>
 class TinyKV {
@@ -32,6 +32,6 @@ class TinyKV {
         typedef T KVEngine;
         KVEngine* _imp;
 };
-};  // namespace TinyKV
+};  // namespace TINYKV
 
 #endif  // TINY_KV_SRC_TINY_KV_H_
