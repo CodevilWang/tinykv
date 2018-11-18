@@ -38,32 +38,36 @@ namespace protobuf_service_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[2];
+  static const ::google::protobuf::internal::ParseTable schema[3];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors();
 }  // namespace protobuf_service_2eproto
-namespace TinyKv {
+namespace TINYKV {
 class ReqKey;
 class ReqKeyDefaultTypeInternal;
 extern ReqKeyDefaultTypeInternal _ReqKey_default_instance_;
+class ReqKeyValue;
+class ReqKeyValueDefaultTypeInternal;
+extern ReqKeyValueDefaultTypeInternal _ReqKeyValue_default_instance_;
 class RespValue;
 class RespValueDefaultTypeInternal;
 extern RespValueDefaultTypeInternal _RespValue_default_instance_;
-}  // namespace TinyKv
+}  // namespace TINYKV
 namespace google {
 namespace protobuf {
-template<> ::TinyKv::ReqKey* Arena::CreateMaybeMessage<::TinyKv::ReqKey>(Arena*);
-template<> ::TinyKv::RespValue* Arena::CreateMaybeMessage<::TinyKv::RespValue>(Arena*);
+template<> ::TINYKV::ReqKey* Arena::CreateMaybeMessage<::TINYKV::ReqKey>(Arena*);
+template<> ::TINYKV::ReqKeyValue* Arena::CreateMaybeMessage<::TINYKV::ReqKeyValue>(Arena*);
+template<> ::TINYKV::RespValue* Arena::CreateMaybeMessage<::TINYKV::RespValue>(Arena*);
 }  // namespace protobuf
 }  // namespace google
-namespace TinyKv {
+namespace TINYKV {
 
 // ===================================================================
 
-class ReqKey : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:TinyKv.ReqKey) */ {
+class ReqKey : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:TINYKV.ReqKey) */ {
  public:
   ReqKey();
   virtual ~ReqKey();
@@ -89,13 +93,6 @@ class ReqKey : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
     return *this;
   }
   #endif
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
   static const ::google::protobuf::Descriptor* descriptor();
   static const ReqKey& default_instance();
 
@@ -179,28 +176,173 @@ class ReqKey : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   const ::google::protobuf::RepeatedPtrField< ::std::string>& key() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_key();
 
-  // required int64 qid = 1;
-  bool has_qid() const;
+  // int64 qid = 1;
   void clear_qid();
   static const int kQidFieldNumber = 1;
   ::google::protobuf::int64 qid() const;
   void set_qid(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:TinyKv.ReqKey)
+  // @@protoc_insertion_point(class_scope:TINYKV.ReqKey)
  private:
-  void set_has_qid();
-  void clear_has_qid();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::std::string> key_;
   ::google::protobuf::int64 qid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_service_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class RespValue : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:TinyKv.RespValue) */ {
+class ReqKeyValue : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:TINYKV.ReqKeyValue) */ {
+ public:
+  ReqKeyValue();
+  virtual ~ReqKeyValue();
+
+  ReqKeyValue(const ReqKeyValue& from);
+
+  inline ReqKeyValue& operator=(const ReqKeyValue& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ReqKeyValue(ReqKeyValue&& from) noexcept
+    : ReqKeyValue() {
+    *this = ::std::move(from);
+  }
+
+  inline ReqKeyValue& operator=(ReqKeyValue&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReqKeyValue& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ReqKeyValue* internal_default_instance() {
+    return reinterpret_cast<const ReqKeyValue*>(
+               &_ReqKeyValue_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(ReqKeyValue* other);
+  friend void swap(ReqKeyValue& a, ReqKeyValue& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ReqKeyValue* New() const final {
+    return CreateMaybeMessage<ReqKeyValue>(NULL);
+  }
+
+  ReqKeyValue* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<ReqKeyValue>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ReqKeyValue& from);
+  void MergeFrom(const ReqKeyValue& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReqKeyValue* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated string key = 2;
+  int key_size() const;
+  void clear_key();
+  static const int kKeyFieldNumber = 2;
+  const ::std::string& key(int index) const;
+  ::std::string* mutable_key(int index);
+  void set_key(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_key(int index, ::std::string&& value);
+  #endif
+  void set_key(int index, const char* value);
+  void set_key(int index, const char* value, size_t size);
+  ::std::string* add_key();
+  void add_key(const ::std::string& value);
+  #if LANG_CXX11
+  void add_key(::std::string&& value);
+  #endif
+  void add_key(const char* value);
+  void add_key(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& key() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_key();
+
+  // repeated string value = 3;
+  int value_size() const;
+  void clear_value();
+  static const int kValueFieldNumber = 3;
+  const ::std::string& value(int index) const;
+  ::std::string* mutable_value(int index);
+  void set_value(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_value(int index, ::std::string&& value);
+  #endif
+  void set_value(int index, const char* value);
+  void set_value(int index, const char* value, size_t size);
+  ::std::string* add_value();
+  void add_value(const ::std::string& value);
+  #if LANG_CXX11
+  void add_value(::std::string&& value);
+  #endif
+  void add_value(const char* value);
+  void add_value(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
+
+  // int64 qid = 1;
+  void clear_qid();
+  static const int kQidFieldNumber = 1;
+  ::google::protobuf::int64 qid() const;
+  void set_qid(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:TINYKV.ReqKeyValue)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> key_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> value_;
+  ::google::protobuf::int64 qid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_service_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class RespValue : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:TINYKV.RespValue) */ {
  public:
   RespValue();
   virtual ~RespValue();
@@ -226,13 +368,6 @@ class RespValue : public ::google::protobuf::Message /* @@protoc_insertion_point
     return *this;
   }
   #endif
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
   static const ::google::protobuf::Descriptor* descriptor();
   static const RespValue& default_instance();
 
@@ -242,7 +377,7 @@ class RespValue : public ::google::protobuf::Message /* @@protoc_insertion_point
                &_RespValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(RespValue* other);
   friend void swap(RespValue& a, RespValue& b) {
@@ -316,23 +451,19 @@ class RespValue : public ::google::protobuf::Message /* @@protoc_insertion_point
   const ::google::protobuf::RepeatedPtrField< ::std::string>& value() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_value();
 
-  // required int32 status = 1;
-  bool has_status() const;
+  // int32 status = 1;
   void clear_status();
   static const int kStatusFieldNumber = 1;
   ::google::protobuf::int32 status() const;
   void set_status(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:TinyKv.RespValue)
+  // @@protoc_insertion_point(class_scope:TINYKV.RespValue)
  private:
-  void set_has_status();
-  void clear_has_status();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::std::string> value_;
   ::google::protobuf::int32 status_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_service_2eproto::TableStruct;
 };
 // ===================================================================
@@ -346,28 +477,18 @@ class RespValue : public ::google::protobuf::Message /* @@protoc_insertion_point
 #endif  // __GNUC__
 // ReqKey
 
-// required int64 qid = 1;
-inline bool ReqKey::has_qid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void ReqKey::set_has_qid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void ReqKey::clear_has_qid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// int64 qid = 1;
 inline void ReqKey::clear_qid() {
   qid_ = GOOGLE_LONGLONG(0);
-  clear_has_qid();
 }
 inline ::google::protobuf::int64 ReqKey::qid() const {
-  // @@protoc_insertion_point(field_get:TinyKv.ReqKey.qid)
+  // @@protoc_insertion_point(field_get:TINYKV.ReqKey.qid)
   return qid_;
 }
 inline void ReqKey::set_qid(::google::protobuf::int64 value) {
-  set_has_qid();
+  
   qid_ = value;
-  // @@protoc_insertion_point(field_set:TinyKv.ReqKey.qid)
+  // @@protoc_insertion_point(field_set:TINYKV.ReqKey.qid)
 }
 
 // repeated string key = 2;
@@ -378,93 +499,239 @@ inline void ReqKey::clear_key() {
   key_.Clear();
 }
 inline const ::std::string& ReqKey::key(int index) const {
-  // @@protoc_insertion_point(field_get:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_get:TINYKV.ReqKey.key)
   return key_.Get(index);
 }
 inline ::std::string* ReqKey::mutable_key(int index) {
-  // @@protoc_insertion_point(field_mutable:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_mutable:TINYKV.ReqKey.key)
   return key_.Mutable(index);
 }
 inline void ReqKey::set_key(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_set:TINYKV.ReqKey.key)
   key_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
 inline void ReqKey::set_key(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_set:TINYKV.ReqKey.key)
   key_.Mutable(index)->assign(std::move(value));
 }
 #endif
 inline void ReqKey::set_key(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
   key_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_set_char:TINYKV.ReqKey.key)
 }
 inline void ReqKey::set_key(int index, const char* value, size_t size) {
   key_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_set_pointer:TINYKV.ReqKey.key)
 }
 inline ::std::string* ReqKey::add_key() {
-  // @@protoc_insertion_point(field_add_mutable:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_add_mutable:TINYKV.ReqKey.key)
   return key_.Add();
 }
 inline void ReqKey::add_key(const ::std::string& value) {
   key_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_add:TINYKV.ReqKey.key)
 }
 #if LANG_CXX11
 inline void ReqKey::add_key(::std::string&& value) {
   key_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_add:TINYKV.ReqKey.key)
 }
 #endif
 inline void ReqKey::add_key(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   key_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_add_char:TINYKV.ReqKey.key)
 }
 inline void ReqKey::add_key(const char* value, size_t size) {
   key_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_add_pointer:TINYKV.ReqKey.key)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
 ReqKey::key() const {
-  // @@protoc_insertion_point(field_list:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_list:TINYKV.ReqKey.key)
   return key_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 ReqKey::mutable_key() {
-  // @@protoc_insertion_point(field_mutable_list:TinyKv.ReqKey.key)
+  // @@protoc_insertion_point(field_mutable_list:TINYKV.ReqKey.key)
   return &key_;
+}
+
+// -------------------------------------------------------------------
+
+// ReqKeyValue
+
+// int64 qid = 1;
+inline void ReqKeyValue::clear_qid() {
+  qid_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 ReqKeyValue::qid() const {
+  // @@protoc_insertion_point(field_get:TINYKV.ReqKeyValue.qid)
+  return qid_;
+}
+inline void ReqKeyValue::set_qid(::google::protobuf::int64 value) {
+  
+  qid_ = value;
+  // @@protoc_insertion_point(field_set:TINYKV.ReqKeyValue.qid)
+}
+
+// repeated string key = 2;
+inline int ReqKeyValue::key_size() const {
+  return key_.size();
+}
+inline void ReqKeyValue::clear_key() {
+  key_.Clear();
+}
+inline const ::std::string& ReqKeyValue::key(int index) const {
+  // @@protoc_insertion_point(field_get:TINYKV.ReqKeyValue.key)
+  return key_.Get(index);
+}
+inline ::std::string* ReqKeyValue::mutable_key(int index) {
+  // @@protoc_insertion_point(field_mutable:TINYKV.ReqKeyValue.key)
+  return key_.Mutable(index);
+}
+inline void ReqKeyValue::set_key(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:TINYKV.ReqKeyValue.key)
+  key_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void ReqKeyValue::set_key(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:TINYKV.ReqKeyValue.key)
+  key_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void ReqKeyValue::set_key(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  key_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:TINYKV.ReqKeyValue.key)
+}
+inline void ReqKeyValue::set_key(int index, const char* value, size_t size) {
+  key_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:TINYKV.ReqKeyValue.key)
+}
+inline ::std::string* ReqKeyValue::add_key() {
+  // @@protoc_insertion_point(field_add_mutable:TINYKV.ReqKeyValue.key)
+  return key_.Add();
+}
+inline void ReqKeyValue::add_key(const ::std::string& value) {
+  key_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:TINYKV.ReqKeyValue.key)
+}
+#if LANG_CXX11
+inline void ReqKeyValue::add_key(::std::string&& value) {
+  key_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:TINYKV.ReqKeyValue.key)
+}
+#endif
+inline void ReqKeyValue::add_key(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  key_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:TINYKV.ReqKeyValue.key)
+}
+inline void ReqKeyValue::add_key(const char* value, size_t size) {
+  key_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:TINYKV.ReqKeyValue.key)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+ReqKeyValue::key() const {
+  // @@protoc_insertion_point(field_list:TINYKV.ReqKeyValue.key)
+  return key_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+ReqKeyValue::mutable_key() {
+  // @@protoc_insertion_point(field_mutable_list:TINYKV.ReqKeyValue.key)
+  return &key_;
+}
+
+// repeated string value = 3;
+inline int ReqKeyValue::value_size() const {
+  return value_.size();
+}
+inline void ReqKeyValue::clear_value() {
+  value_.Clear();
+}
+inline const ::std::string& ReqKeyValue::value(int index) const {
+  // @@protoc_insertion_point(field_get:TINYKV.ReqKeyValue.value)
+  return value_.Get(index);
+}
+inline ::std::string* ReqKeyValue::mutable_value(int index) {
+  // @@protoc_insertion_point(field_mutable:TINYKV.ReqKeyValue.value)
+  return value_.Mutable(index);
+}
+inline void ReqKeyValue::set_value(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:TINYKV.ReqKeyValue.value)
+  value_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void ReqKeyValue::set_value(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:TINYKV.ReqKeyValue.value)
+  value_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void ReqKeyValue::set_value(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  value_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:TINYKV.ReqKeyValue.value)
+}
+inline void ReqKeyValue::set_value(int index, const char* value, size_t size) {
+  value_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:TINYKV.ReqKeyValue.value)
+}
+inline ::std::string* ReqKeyValue::add_value() {
+  // @@protoc_insertion_point(field_add_mutable:TINYKV.ReqKeyValue.value)
+  return value_.Add();
+}
+inline void ReqKeyValue::add_value(const ::std::string& value) {
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:TINYKV.ReqKeyValue.value)
+}
+#if LANG_CXX11
+inline void ReqKeyValue::add_value(::std::string&& value) {
+  value_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:TINYKV.ReqKeyValue.value)
+}
+#endif
+inline void ReqKeyValue::add_value(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:TINYKV.ReqKeyValue.value)
+}
+inline void ReqKeyValue::add_value(const char* value, size_t size) {
+  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:TINYKV.ReqKeyValue.value)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+ReqKeyValue::value() const {
+  // @@protoc_insertion_point(field_list:TINYKV.ReqKeyValue.value)
+  return value_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+ReqKeyValue::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:TINYKV.ReqKeyValue.value)
+  return &value_;
 }
 
 // -------------------------------------------------------------------
 
 // RespValue
 
-// required int32 status = 1;
-inline bool RespValue::has_status() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void RespValue::set_has_status() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void RespValue::clear_has_status() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+// int32 status = 1;
 inline void RespValue::clear_status() {
   status_ = 0;
-  clear_has_status();
 }
 inline ::google::protobuf::int32 RespValue::status() const {
-  // @@protoc_insertion_point(field_get:TinyKv.RespValue.status)
+  // @@protoc_insertion_point(field_get:TINYKV.RespValue.status)
   return status_;
 }
 inline void RespValue::set_status(::google::protobuf::int32 value) {
-  set_has_status();
+  
   status_ = value;
-  // @@protoc_insertion_point(field_set:TinyKv.RespValue.status)
+  // @@protoc_insertion_point(field_set:TINYKV.RespValue.status)
 }
 
 // repeated string value = 2;
@@ -475,64 +742,64 @@ inline void RespValue::clear_value() {
   value_.Clear();
 }
 inline const ::std::string& RespValue::value(int index) const {
-  // @@protoc_insertion_point(field_get:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_get:TINYKV.RespValue.value)
   return value_.Get(index);
 }
 inline ::std::string* RespValue::mutable_value(int index) {
-  // @@protoc_insertion_point(field_mutable:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_mutable:TINYKV.RespValue.value)
   return value_.Mutable(index);
 }
 inline void RespValue::set_value(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_set:TINYKV.RespValue.value)
   value_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
 inline void RespValue::set_value(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_set:TINYKV.RespValue.value)
   value_.Mutable(index)->assign(std::move(value));
 }
 #endif
 inline void RespValue::set_value(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
   value_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_set_char:TINYKV.RespValue.value)
 }
 inline void RespValue::set_value(int index, const char* value, size_t size) {
   value_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_set_pointer:TINYKV.RespValue.value)
 }
 inline ::std::string* RespValue::add_value() {
-  // @@protoc_insertion_point(field_add_mutable:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_add_mutable:TINYKV.RespValue.value)
   return value_.Add();
 }
 inline void RespValue::add_value(const ::std::string& value) {
   value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_add:TINYKV.RespValue.value)
 }
 #if LANG_CXX11
 inline void RespValue::add_value(::std::string&& value) {
   value_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_add:TINYKV.RespValue.value)
 }
 #endif
 inline void RespValue::add_value(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_add_char:TINYKV.RespValue.value)
 }
 inline void RespValue::add_value(const char* value, size_t size) {
   value_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_add_pointer:TINYKV.RespValue.value)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
 RespValue::value() const {
-  // @@protoc_insertion_point(field_list:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_list:TINYKV.RespValue.value)
   return value_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 RespValue::mutable_value() {
-  // @@protoc_insertion_point(field_mutable_list:TinyKv.RespValue.value)
+  // @@protoc_insertion_point(field_mutable_list:TINYKV.RespValue.value)
   return &value_;
 }
 
@@ -541,10 +808,12 @@ RespValue::mutable_value() {
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace TinyKv
+}  // namespace TINYKV
 
 // @@protoc_insertion_point(global_scope)
 

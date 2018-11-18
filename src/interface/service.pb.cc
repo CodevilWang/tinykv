@@ -19,42 +19,61 @@
 #endif
 // @@protoc_insertion_point(includes)
 
-namespace TinyKv {
+namespace TINYKV {
 class ReqKeyDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ReqKey>
       _instance;
 } _ReqKey_default_instance_;
+class ReqKeyValueDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<ReqKeyValue>
+      _instance;
+} _ReqKeyValue_default_instance_;
 class RespValueDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<RespValue>
       _instance;
 } _RespValue_default_instance_;
-}  // namespace TinyKv
+}  // namespace TINYKV
 namespace protobuf_service_2eproto {
 static void InitDefaultsReqKey() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::TinyKv::_ReqKey_default_instance_;
-    new (ptr) ::TinyKv::ReqKey();
+    void* ptr = &::TINYKV::_ReqKey_default_instance_;
+    new (ptr) ::TINYKV::ReqKey();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::TinyKv::ReqKey::InitAsDefaultInstance();
+  ::TINYKV::ReqKey::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_ReqKey =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsReqKey}, {}};
 
+static void InitDefaultsReqKeyValue() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::TINYKV::_ReqKeyValue_default_instance_;
+    new (ptr) ::TINYKV::ReqKeyValue();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::TINYKV::ReqKeyValue::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_ReqKeyValue =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsReqKeyValue}, {}};
+
 static void InitDefaultsRespValue() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::TinyKv::_RespValue_default_instance_;
-    new (ptr) ::TinyKv::RespValue();
+    void* ptr = &::TINYKV::_RespValue_default_instance_;
+    new (ptr) ::TINYKV::RespValue();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::TinyKv::RespValue::InitAsDefaultInstance();
+  ::TINYKV::RespValue::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_RespValue =
@@ -62,39 +81,46 @@ static void InitDefaultsRespValue() {
 
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_ReqKey.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_ReqKeyValue.base);
   ::google::protobuf::internal::InitSCC(&scc_info_RespValue.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[2];
+::google::protobuf::Metadata file_level_metadata[3];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TinyKv::ReqKey, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TinyKv::ReqKey, _internal_metadata_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::ReqKey, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TinyKv::ReqKey, qid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TinyKv::ReqKey, key_),
-  0,
-  ~0u,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TinyKv::RespValue, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TinyKv::RespValue, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::ReqKey, qid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::ReqKey, key_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::ReqKeyValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TinyKv::RespValue, status_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TinyKv::RespValue, value_),
-  0,
-  ~0u,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::ReqKeyValue, qid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::ReqKeyValue, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::ReqKeyValue, value_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::RespValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::RespValue, status_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TINYKV::RespValue, value_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 7, sizeof(::TinyKv::ReqKey)},
-  { 9, 16, sizeof(::TinyKv::RespValue)},
+  { 0, -1, sizeof(::TINYKV::ReqKey)},
+  { 7, -1, sizeof(::TINYKV::ReqKeyValue)},
+  { 15, -1, sizeof(::TINYKV::RespValue)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::TinyKv::_ReqKey_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::TinyKv::_RespValue_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::TINYKV::_ReqKey_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::TINYKV::_ReqKeyValue_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::TINYKV::_RespValue_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -112,18 +138,22 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 3);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rservice.proto\022\006TinyKv\"\"\n\006ReqKey\022\013\n\003qid"
-      "\030\001 \002(\003\022\013\n\003key\030\002 \003(\t\"*\n\tRespValue\022\016\n\006stat"
-      "us\030\001 \002(\005\022\r\n\005value\030\002 \003(\t"
+      "\n\rservice.proto\022\006TINYKV\"\"\n\006ReqKey\022\013\n\003qid"
+      "\030\001 \001(\003\022\013\n\003key\030\002 \003(\t\"6\n\013ReqKeyValue\022\013\n\003qi"
+      "d\030\001 \001(\003\022\013\n\003key\030\002 \003(\t\022\r\n\005value\030\003 \003(\t\"*\n\tR"
+      "espValue\022\016\n\006status\030\001 \001(\005\022\r\n\005value\030\002 \003(\t2"
+      "k\n\tKVService\022*\n\003Get\022\016.TINYKV.ReqKey\032\021.TI"
+      "NYKV.RespValue\"\000\0222\n\006Insert\022\023.TINYKV.ReqK"
+      "eyValue\032\021.TINYKV.RespValue\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 103);
+      descriptor, 276);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "service.proto", &protobuf_RegisterTypes);
 }
@@ -139,7 +169,7 @@ struct StaticDescriptorInitializer {
   }
 } static_descriptor_initializer;
 }  // namespace protobuf_service_2eproto
-namespace TinyKv {
+namespace TINYKV {
 
 // ===================================================================
 
@@ -155,16 +185,15 @@ ReqKey::ReqKey()
   ::google::protobuf::internal::InitSCC(
       &protobuf_service_2eproto::scc_info_ReqKey.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:TinyKv.ReqKey)
+  // @@protoc_insertion_point(constructor:TINYKV.ReqKey)
 }
 ReqKey::ReqKey(const ReqKey& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_),
       key_(from.key_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   qid_ = from.qid_;
-  // @@protoc_insertion_point(copy_constructor:TinyKv.ReqKey)
+  // @@protoc_insertion_point(copy_constructor:TINYKV.ReqKey)
 }
 
 void ReqKey::SharedCtor() {
@@ -172,7 +201,7 @@ void ReqKey::SharedCtor() {
 }
 
 ReqKey::~ReqKey() {
-  // @@protoc_insertion_point(destructor:TinyKv.ReqKey)
+  // @@protoc_insertion_point(destructor:TINYKV.ReqKey)
   SharedDtor();
 }
 
@@ -194,14 +223,13 @@ const ReqKey& ReqKey::default_instance() {
 
 
 void ReqKey::Clear() {
-// @@protoc_insertion_point(message_clear_start:TinyKv.ReqKey)
+// @@protoc_insertion_point(message_clear_start:TINYKV.ReqKey)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   key_.Clear();
   qid_ = GOOGLE_LONGLONG(0);
-  _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
@@ -209,17 +237,17 @@ bool ReqKey::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:TinyKv.ReqKey)
+  // @@protoc_insertion_point(parse_start:TINYKV.ReqKey)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 qid = 1;
+      // int64 qid = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_qid();
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &qid_)));
@@ -235,11 +263,11 @@ bool ReqKey::MergePartialFromCodedStream(
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_key()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->key(this->key_size() - 1).data(),
             static_cast<int>(this->key(this->key_size() - 1).length()),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "TinyKv.ReqKey.key");
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "TINYKV.ReqKey.key"));
         } else {
           goto handle_unusual;
         }
@@ -258,88 +286,80 @@ bool ReqKey::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:TinyKv.ReqKey)
+  // @@protoc_insertion_point(parse_success:TINYKV.ReqKey)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:TinyKv.ReqKey)
+  // @@protoc_insertion_point(parse_failure:TINYKV.ReqKey)
   return false;
 #undef DO_
 }
 
 void ReqKey::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:TinyKv.ReqKey)
+  // @@protoc_insertion_point(serialize_start:TINYKV.ReqKey)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // required int64 qid = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // int64 qid = 1;
+  if (this->qid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->qid(), output);
   }
 
   // repeated string key = 2;
   for (int i = 0, n = this->key_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->key(i).data(), static_cast<int>(this->key(i).length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "TinyKv.ReqKey.key");
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "TINYKV.ReqKey.key");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->key(i), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:TinyKv.ReqKey)
+  // @@protoc_insertion_point(serialize_end:TINYKV.ReqKey)
 }
 
 ::google::protobuf::uint8* ReqKey::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:TinyKv.ReqKey)
+  // @@protoc_insertion_point(serialize_to_array_start:TINYKV.ReqKey)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // required int64 qid = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // int64 qid = 1;
+  if (this->qid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->qid(), target);
   }
 
   // repeated string key = 2;
   for (int i = 0, n = this->key_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->key(i).data(), static_cast<int>(this->key(i).length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "TinyKv.ReqKey.key");
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "TINYKV.ReqKey.key");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(2, this->key(i), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:TinyKv.ReqKey)
+  // @@protoc_insertion_point(serialize_to_array_end:TINYKV.ReqKey)
   return target;
 }
 
 size_t ReqKey::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:TinyKv.ReqKey)
+// @@protoc_insertion_point(message_byte_size_start:TINYKV.ReqKey)
   size_t total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  // required int64 qid = 1;
-  if (has_qid()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->qid());
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
   // repeated string key = 2;
   total_size += 1 *
@@ -349,55 +369,61 @@ size_t ReqKey::ByteSizeLong() const {
       this->key(i));
   }
 
+  // int64 qid = 1;
+  if (this->qid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->qid());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void ReqKey::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:TinyKv.ReqKey)
+// @@protoc_insertion_point(generalized_merge_from_start:TINYKV.ReqKey)
   GOOGLE_DCHECK_NE(&from, this);
   const ReqKey* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const ReqKey>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:TinyKv.ReqKey)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:TINYKV.ReqKey)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:TinyKv.ReqKey)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:TINYKV.ReqKey)
     MergeFrom(*source);
   }
 }
 
 void ReqKey::MergeFrom(const ReqKey& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:TinyKv.ReqKey)
+// @@protoc_insertion_point(class_specific_merge_from_start:TINYKV.ReqKey)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   key_.MergeFrom(from.key_);
-  if (from.has_qid()) {
+  if (from.qid() != 0) {
     set_qid(from.qid());
   }
 }
 
 void ReqKey::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:TinyKv.ReqKey)
+// @@protoc_insertion_point(generalized_copy_from_start:TINYKV.ReqKey)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void ReqKey::CopyFrom(const ReqKey& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:TinyKv.ReqKey)
+// @@protoc_insertion_point(class_specific_copy_from_start:TINYKV.ReqKey)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 bool ReqKey::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   return true;
 }
 
@@ -409,11 +435,333 @@ void ReqKey::InternalSwap(ReqKey* other) {
   using std::swap;
   key_.InternalSwap(CastToBase(&other->key_));
   swap(qid_, other->qid_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
 ::google::protobuf::Metadata ReqKey::GetMetadata() const {
+  protobuf_service_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_service_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void ReqKeyValue::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ReqKeyValue::kQidFieldNumber;
+const int ReqKeyValue::kKeyFieldNumber;
+const int ReqKeyValue::kValueFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ReqKeyValue::ReqKeyValue()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_service_2eproto::scc_info_ReqKeyValue.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:TINYKV.ReqKeyValue)
+}
+ReqKeyValue::ReqKeyValue(const ReqKeyValue& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      key_(from.key_),
+      value_(from.value_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  qid_ = from.qid_;
+  // @@protoc_insertion_point(copy_constructor:TINYKV.ReqKeyValue)
+}
+
+void ReqKeyValue::SharedCtor() {
+  qid_ = GOOGLE_LONGLONG(0);
+}
+
+ReqKeyValue::~ReqKeyValue() {
+  // @@protoc_insertion_point(destructor:TINYKV.ReqKeyValue)
+  SharedDtor();
+}
+
+void ReqKeyValue::SharedDtor() {
+}
+
+void ReqKeyValue::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* ReqKeyValue::descriptor() {
+  ::protobuf_service_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_service_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const ReqKeyValue& ReqKeyValue::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_service_2eproto::scc_info_ReqKeyValue.base);
+  return *internal_default_instance();
+}
+
+
+void ReqKeyValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:TINYKV.ReqKeyValue)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  key_.Clear();
+  value_.Clear();
+  qid_ = GOOGLE_LONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+bool ReqKeyValue::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:TINYKV.ReqKeyValue)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int64 qid = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &qid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string key = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key(this->key_size() - 1).data(),
+            static_cast<int>(this->key(this->key_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "TINYKV.ReqKeyValue.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string value = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_value()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->value(this->value_size() - 1).data(),
+            static_cast<int>(this->value(this->value_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "TINYKV.ReqKeyValue.value"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:TINYKV.ReqKeyValue)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:TINYKV.ReqKeyValue)
+  return false;
+#undef DO_
+}
+
+void ReqKeyValue::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:TINYKV.ReqKeyValue)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 qid = 1;
+  if (this->qid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->qid(), output);
+  }
+
+  // repeated string key = 2;
+  for (int i = 0, n = this->key_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key(i).data(), static_cast<int>(this->key(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "TINYKV.ReqKeyValue.key");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->key(i), output);
+  }
+
+  // repeated string value = 3;
+  for (int i = 0, n = this->value_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->value(i).data(), static_cast<int>(this->value(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "TINYKV.ReqKeyValue.value");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->value(i), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:TINYKV.ReqKeyValue)
+}
+
+::google::protobuf::uint8* ReqKeyValue::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:TINYKV.ReqKeyValue)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 qid = 1;
+  if (this->qid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->qid(), target);
+  }
+
+  // repeated string key = 2;
+  for (int i = 0, n = this->key_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key(i).data(), static_cast<int>(this->key(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "TINYKV.ReqKeyValue.key");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->key(i), target);
+  }
+
+  // repeated string value = 3;
+  for (int i = 0, n = this->value_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->value(i).data(), static_cast<int>(this->value(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "TINYKV.ReqKeyValue.value");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->value(i), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:TINYKV.ReqKeyValue)
+  return target;
+}
+
+size_t ReqKeyValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:TINYKV.ReqKeyValue)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated string key = 2;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->key_size());
+  for (int i = 0, n = this->key_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->key(i));
+  }
+
+  // repeated string value = 3;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->value_size());
+  for (int i = 0, n = this->value_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->value(i));
+  }
+
+  // int64 qid = 1;
+  if (this->qid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->qid());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ReqKeyValue::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:TINYKV.ReqKeyValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ReqKeyValue* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ReqKeyValue>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:TINYKV.ReqKeyValue)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:TINYKV.ReqKeyValue)
+    MergeFrom(*source);
+  }
+}
+
+void ReqKeyValue::MergeFrom(const ReqKeyValue& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:TINYKV.ReqKeyValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  key_.MergeFrom(from.key_);
+  value_.MergeFrom(from.value_);
+  if (from.qid() != 0) {
+    set_qid(from.qid());
+  }
+}
+
+void ReqKeyValue::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:TINYKV.ReqKeyValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ReqKeyValue::CopyFrom(const ReqKeyValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:TINYKV.ReqKeyValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReqKeyValue::IsInitialized() const {
+  return true;
+}
+
+void ReqKeyValue::Swap(ReqKeyValue* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ReqKeyValue::InternalSwap(ReqKeyValue* other) {
+  using std::swap;
+  key_.InternalSwap(CastToBase(&other->key_));
+  value_.InternalSwap(CastToBase(&other->value_));
+  swap(qid_, other->qid_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata ReqKeyValue::GetMetadata() const {
   protobuf_service_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_service_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -433,16 +781,15 @@ RespValue::RespValue()
   ::google::protobuf::internal::InitSCC(
       &protobuf_service_2eproto::scc_info_RespValue.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:TinyKv.RespValue)
+  // @@protoc_insertion_point(constructor:TINYKV.RespValue)
 }
 RespValue::RespValue(const RespValue& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_),
       value_(from.value_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   status_ = from.status_;
-  // @@protoc_insertion_point(copy_constructor:TinyKv.RespValue)
+  // @@protoc_insertion_point(copy_constructor:TINYKV.RespValue)
 }
 
 void RespValue::SharedCtor() {
@@ -450,7 +797,7 @@ void RespValue::SharedCtor() {
 }
 
 RespValue::~RespValue() {
-  // @@protoc_insertion_point(destructor:TinyKv.RespValue)
+  // @@protoc_insertion_point(destructor:TINYKV.RespValue)
   SharedDtor();
 }
 
@@ -472,14 +819,13 @@ const RespValue& RespValue::default_instance() {
 
 
 void RespValue::Clear() {
-// @@protoc_insertion_point(message_clear_start:TinyKv.RespValue)
+// @@protoc_insertion_point(message_clear_start:TINYKV.RespValue)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   value_.Clear();
   status_ = 0;
-  _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
@@ -487,17 +833,17 @@ bool RespValue::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:TinyKv.RespValue)
+  // @@protoc_insertion_point(parse_start:TINYKV.RespValue)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 status = 1;
+      // int32 status = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_status();
+
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &status_)));
@@ -513,11 +859,11 @@ bool RespValue::MergePartialFromCodedStream(
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_value()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->value(this->value_size() - 1).data(),
             static_cast<int>(this->value(this->value_size() - 1).length()),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "TinyKv.RespValue.value");
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "TINYKV.RespValue.value"));
         } else {
           goto handle_unusual;
         }
@@ -536,88 +882,80 @@ bool RespValue::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:TinyKv.RespValue)
+  // @@protoc_insertion_point(parse_success:TINYKV.RespValue)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:TinyKv.RespValue)
+  // @@protoc_insertion_point(parse_failure:TINYKV.RespValue)
   return false;
 #undef DO_
 }
 
 void RespValue::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:TinyKv.RespValue)
+  // @@protoc_insertion_point(serialize_start:TINYKV.RespValue)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // required int32 status = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // int32 status = 1;
+  if (this->status() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->status(), output);
   }
 
   // repeated string value = 2;
   for (int i = 0, n = this->value_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->value(i).data(), static_cast<int>(this->value(i).length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "TinyKv.RespValue.value");
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "TINYKV.RespValue.value");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->value(i), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:TinyKv.RespValue)
+  // @@protoc_insertion_point(serialize_end:TINYKV.RespValue)
 }
 
 ::google::protobuf::uint8* RespValue::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:TinyKv.RespValue)
+  // @@protoc_insertion_point(serialize_to_array_start:TINYKV.RespValue)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // required int32 status = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // int32 status = 1;
+  if (this->status() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->status(), target);
   }
 
   // repeated string value = 2;
   for (int i = 0, n = this->value_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->value(i).data(), static_cast<int>(this->value(i).length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "TinyKv.RespValue.value");
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "TINYKV.RespValue.value");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(2, this->value(i), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:TinyKv.RespValue)
+  // @@protoc_insertion_point(serialize_to_array_end:TINYKV.RespValue)
   return target;
 }
 
 size_t RespValue::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:TinyKv.RespValue)
+// @@protoc_insertion_point(message_byte_size_start:TINYKV.RespValue)
   size_t total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  // required int32 status = 1;
-  if (has_status()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->status());
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
   // repeated string value = 2;
   total_size += 1 *
@@ -627,55 +965,61 @@ size_t RespValue::ByteSizeLong() const {
       this->value(i));
   }
 
+  // int32 status = 1;
+  if (this->status() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->status());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void RespValue::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:TinyKv.RespValue)
+// @@protoc_insertion_point(generalized_merge_from_start:TINYKV.RespValue)
   GOOGLE_DCHECK_NE(&from, this);
   const RespValue* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const RespValue>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:TinyKv.RespValue)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:TINYKV.RespValue)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:TinyKv.RespValue)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:TINYKV.RespValue)
     MergeFrom(*source);
   }
 }
 
 void RespValue::MergeFrom(const RespValue& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:TinyKv.RespValue)
+// @@protoc_insertion_point(class_specific_merge_from_start:TINYKV.RespValue)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   value_.MergeFrom(from.value_);
-  if (from.has_status()) {
+  if (from.status() != 0) {
     set_status(from.status());
   }
 }
 
 void RespValue::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:TinyKv.RespValue)
+// @@protoc_insertion_point(generalized_copy_from_start:TINYKV.RespValue)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void RespValue::CopyFrom(const RespValue& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:TinyKv.RespValue)
+// @@protoc_insertion_point(class_specific_copy_from_start:TINYKV.RespValue)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 bool RespValue::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   return true;
 }
 
@@ -687,7 +1031,6 @@ void RespValue::InternalSwap(RespValue* other) {
   using std::swap;
   value_.InternalSwap(CastToBase(&other->value_));
   swap(status_, other->status_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
@@ -698,14 +1041,17 @@ void RespValue::InternalSwap(RespValue* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace TinyKv
+}  // namespace TINYKV
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::TinyKv::ReqKey* Arena::CreateMaybeMessage< ::TinyKv::ReqKey >(Arena* arena) {
-  return Arena::CreateInternal< ::TinyKv::ReqKey >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::TINYKV::ReqKey* Arena::CreateMaybeMessage< ::TINYKV::ReqKey >(Arena* arena) {
+  return Arena::CreateInternal< ::TINYKV::ReqKey >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::TinyKv::RespValue* Arena::CreateMaybeMessage< ::TinyKv::RespValue >(Arena* arena) {
-  return Arena::CreateInternal< ::TinyKv::RespValue >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::TINYKV::ReqKeyValue* Arena::CreateMaybeMessage< ::TINYKV::ReqKeyValue >(Arena* arena) {
+  return Arena::CreateInternal< ::TINYKV::ReqKeyValue >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::TINYKV::RespValue* Arena::CreateMaybeMessage< ::TINYKV::RespValue >(Arena* arena) {
+  return Arena::CreateInternal< ::TINYKV::RespValue >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
