@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unordered_map>
+#include <glog/logging.h>
+#include <gflags/gflags.h>
 #include "grpcpp/grpcpp.h"
 #include "tiny_kv.h" 
 #include "plain_kv_engine.h" 
@@ -31,6 +33,12 @@ public:
   }
   Status Get(ServerContext* context, const ReqKey* request,
                   RespValue* reply) override {
+    if (request->key_size() == 0) {
+        LOG(ERROR) << "Reqid=" << request->qid() << " miss request key.";
+        return Status::OK;
+    }
+    LOG(INFO) << "Reqid=" << request->qid() << " key_size=" << request->key_size()
+              << " Sample key=" << request->key(0);
     reply->clear_value();
     for (int i = 0; i < request->key_size(); ++i) {
         std::string value;
@@ -45,9 +53,11 @@ public:
       int key_size = req_key_value->key_size();
       int value_size = req_key_value->value_size();
       if (key_size != value_size) {
-          fprintf(stderr, "Insert cancelled for key value size not match [%d/%d]\n", key_size, value_size);
+          LOG(WARNING) << "Insert cancelled for key value size not match [" << key_size << "/" << value_size << "]";
           return Status::CANCELLED;
       }
+      LOG(INFO) << "Reqid=" << req_key_value->qid() << " key_size=" << req_key_value->key_size()
+                << " Sample key=" << req_key_value->key(0);
       for (int i = 0; i < key_size; ++i) {
           _kv_engine->insert(req_key_value->key(i), req_key_value->value(i));
       }
@@ -64,12 +74,13 @@ void RunServer() {
   builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
   builder.RegisterService(&service);
   std::unique_ptr<Server> server(builder.BuildAndStart());
-
-  std::cout << "Server listening on " << server_address << std::endl;
+  LOG(INFO) << "Server listening on " << server_address;
   server->Wait();
 }
 
 int main(int argc, char** argv) {
-  RunServer();
-  return 0;
+    gflags::ParseCommandLineFlags(&argc, &argv, true);
+    google::InitGoogleLogging(argv[0]);
+    RunServer();
+    return 0;
 }

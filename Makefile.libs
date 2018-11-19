@@ -1,0 +1,16 @@
+# GRPC
+GRPC_ROOT=/Users/baidu/Documents/workspace/grpc
+GRPC_INCLUDE=-I$(GRPC_ROOT)/include
+GRPC_LIBS=-L$(GRPC_ROOT)/libs/opt -lgrpc -lgrpc++ -lgrpc++_reflection
+
+#GLOG & GFLAGS
+GLOG_GFLAG_INCLUDE = -I/usr/local/opt/glog/include -I/usr/local/opt/gflags/include
+GLOG_GFLAG_LIBS = /usr/local/opt/glog/lib/libglog.dylib /usr/local/opt/gflags/lib/libgflags.dylib
+
+
+# LOCAL LIBS
+LOCAL_LIBS = -L./src/interface -linterface
+LOCAL_INCLUDES = -I./src -I./src/interface
+
+LIBS=`pkg-config --libs protobuf` $(GRPC_LIBS) $(LOCAL_LIBS) $(GLOG_GFLAG_LIBS)
+INCLUDES = $(LOCAL_INCLUDES) $(GRPC_INCLUDE) $(GLOG_GFLAG_INCLUDE)

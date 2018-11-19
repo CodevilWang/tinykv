@@ -4,17 +4,11 @@ CXX = g++
 SRCS=src/*cpp
 CPPFLAGS=--std=c++11
 CPPFLAGS += `pkg-config --cflags protobuf`
-GRPC_ROOT=/Users/baidu/Documents/workspace/grpc
-GRPC_INCLUDE=$(GRPC_ROOT)/include
-GRPC_LIBS=-L$(GRPC_ROOT)/libs/opt -lgrpc -lgrpc++
+include Makefile.libs
 DY_GRPC_LIBS=$(GRPC_ROOT)/libs/opt/libgrpc.dylib
-LIBS=`pkg-config --libs protobuf` $(GRPC_LIBS)
-LIBS += -L./src/interface -linterface
-INCLUDES = -I./src -I./src/interface -I$(GRPC_INCLUDE)
 
 ifeq ($(SYSTEM),Darwin)
 LDFLAGS += -L/usr/local/lib $(LIBS) \
-           -lgrpc++_reflection\
            -ldl
 else
 LDFLAGS += -L/usr/local/lib $(LIBS) \
