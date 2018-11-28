@@ -21,6 +21,7 @@ all: interface
 .PHONY: tools
 tools:
 	$(CXX) tools/*cpp -o kv_client $(CPPFLAGS) $(INCLUDES) $(LDFLAGS)
+	mv kv_client tools/
 
 interface:
 	-make -C src/interface
