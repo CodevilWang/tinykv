@@ -12,12 +12,12 @@ LDFLAGS += -L/usr/local/lib $(LIBS) \
            -ldl
 else
 LDFLAGS += -L/usr/local/lib $(LIBS) \
-           -Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed\
-           -ldl
+           -Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed \
+           -ldl -Wl,-rpath=$(GRPC_ROOT)/libs/opt
 endif
 
 all: interface
-	$(CXX) $(SRCS) -o main $(CPPFLAGS) $(INCLUDES) $(LDFLAGS)
+	$(CXX) $(SRCS) -o main $(CPPFLAGS) $(INCLUDES) $(LDFLAGS) -rpath $(GRPC_ROOT)/libs/opt -DUSING_GRPC
 .PHONY: tools
 tools:
 	$(CXX) tools/*cpp -o kv_client $(CPPFLAGS) $(INCLUDES) $(LDFLAGS)
@@ -27,5 +27,5 @@ interface:
 	-make -C src/interface
 
 clean:
-	@rm main
-	@rm kv_client 
+	-@rm main &>/dev/null
+	-@rm kv_client &>/dev/null 

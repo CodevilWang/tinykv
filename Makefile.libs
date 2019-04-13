@@ -7,7 +7,6 @@ GRPC_LIBS=-L$(GRPC_ROOT)/libs/opt -lgrpc -lgrpc++ -lgrpc++_reflection
 GLOG_GFLAG_INCLUDE = -I/usr/local/opt/glog/include -I/usr/local/opt/gflags/include
 GLOG_GFLAG_LIBS = /usr/local/opt/glog/lib/libglog.dylib /usr/local/opt/gflags/lib/libgflags.dylib
 
-
 # LOCAL LIBS
 LOCAL_LIBS = -L./src/interface -linterface
 LOCAL_INCLUDES = -I./src -I./src/interface
