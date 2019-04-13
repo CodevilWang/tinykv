@@ -1,0 +1,7 @@
+# GRPC
+GRPC_ROOT=/Users/xxx/Documents/workspace/grpc
+GRPC_INCLUDE=-I$(GRPC_ROOT)/include
+GRPC_LIBS=-L$(GRPC_ROOT)/libs/opt -lgrpc -lgrpc++ -lgrpc++_reflection
+
+LIBS=`pkg-config --libs protobuf` $(GRPC_LIBS) $(GLOG_GFLAG_LIBS)
+INCLUDES = $(LOCAL_INCLUDES) $(GRPC_INCLUDE) $(GLOG_GFLAG_INCLUDE)

@@ -69,7 +69,7 @@ private:
   KVEngine* _kv_engine;
 };
 
-void RunServer() {
+int RunServer() {
   std::string server_address("0.0.0.0:50051");
   KVServiceImpl<TINYKV::TinyKV<TINYKV::PlainEngine>> service;
   ServerBuilder builder;
@@ -78,6 +78,7 @@ void RunServer() {
   std::unique_ptr<Server> server(builder.BuildAndStart());
   LOG(INFO) << "Server listening on " << server_address;
   server->Wait();
+  return 0;
 }
 #endif
 

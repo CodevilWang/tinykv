@@ -1,0 +1,28 @@
+HOST_SYSTEM = $(shell uname | cut -f 1 -d_)
+SYSTEM ?= $(HOST_SYSTEM)
+CXX = g++
+CPPFLAGS += `pkg-config --cflags protobuf`
+CXXFLAGS += -std=c++11
+LIBS=`pkg-config --libs protobuf`
+ifeq ($(SYSTEM),Darwin)
+LDFLAGS += -L/usr/local/lib $(LIBS) \
+           -ldl
+else
+LDFLAGS += -L/usr/local/lib $(LIBS) \
+           -Wl,--no-as-needed -Wl,--as-needed\
+           -ldl
+endif
+PROTOC = protoc
+PROTOS_PATH = ./ 
+
+all: service_brpc.pb.o
+	ar rc libinterface_brpc.a $^
+
+vpath %.proto $(PROTOS_PATH)
+
+.PRECIOUS: %.pb.cc
+%.pb.cc: service_brpc.proto
+	$(PROTOC) -I $(PROTOS_PATH) --cpp_out=. $<
+
+clean:
+	rm -f *.o *.pb.cc *.pb.h

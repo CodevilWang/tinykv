@@ -1,0 +1,7 @@
+# GRPC
+BRPC_ROOT=/Users/xxx/Documents/workspace/brpc/_build/output
+BRPC_INCLUDE=-I$(BRPC_ROOT)/include
+BRPC_LIBS=-L$(BRPC_ROOT)/lib/ -lbrpc
+
+LIBS=`pkg-config --libs protobuf` $(BRPC_LIBS) $(GLOG_GFLAG_LIBS)
+INCLUDES = $(LOCAL_INCLUDES) $(BRPC_INCLUDE) $(GLOG_GFLAG_INCLUDE)
