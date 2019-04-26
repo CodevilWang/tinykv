@@ -1,0 +1,24 @@
+HOST_SYSTEM = $(shell uname | cut -f 1 -d_)
+SYSTEM ?= $(HOST_SYSTEM)
+THIRDPARTY=../../../thirdparty
+PROTOC = $(THIRDPARTY)/protobuf/bin/protoc 
+PROTOS_PATH = ./ 
+CXX=g++
+CPPFLAGS=-std=c++11
+LIBS=-L$(THIRDPARTY)/protobuf/lib -lprotobuf -lpthread
+INCS=-I$(THIRDPARTY)/protobuf/include
+
+all: service_brpc.pb.o
+	ar rc libinterface_brpc.a $^
+
+service_brpc.pb.o:
+	$(CXX) -c service_brpc.pb.cc $(INCS) $(CPPFLAGS)
+
+vpath %.proto $(PROTOS_PATH)
+
+.PRECIOUS: %.pb.cc
+%.pb.cc: service_brpc.proto
+	$(PROTOC) -I $(PROTOS_PATH) --cpp_out=. $<
+
+clean:
+	rm -f *.o *.pb.cc *.pb.h
