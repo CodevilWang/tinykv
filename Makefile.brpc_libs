@@ -1,5 +1,5 @@
 # GRPC
-BRPC_ROOT=/Users/xxx/Documents/workspace/brpc/_build/output
+BRPC_ROOT=../brpc/_build/output
 BRPC_INCLUDE=-I$(BRPC_ROOT)/include
 BRPC_LIBS=-L$(BRPC_ROOT)/lib/ -lbrpc
 
