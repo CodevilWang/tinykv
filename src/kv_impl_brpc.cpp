@@ -35,6 +35,7 @@ public:
     brpc::ClosureGuard done_guard(done);
     if (request->key_size() == 0) {
         LOG(ERROR) << "Reqid=" << request->qid() << " miss request key.";
+        response->set_status(1);
         return;
     }
     LOG(INFO) << "Reqid=" << request->qid() << " key_size=" << request->key_size()
@@ -46,6 +47,7 @@ public:
             response->add_value(value);
         }
     }
+    response->set_status(0);
     return;
   }
   virtual void Insert(::google::protobuf::RpcController* controller,
@@ -57,6 +59,7 @@ public:
       int value_size = request->value_size();
       if (key_size != value_size) {
           LOG(WARNING) << "Insert cancelled for key value size not match [" << key_size << "/" << value_size << "]";
+          response->set_status(1);
           return;
       }
       LOG(INFO) << "Reqid=" << request->qid() << " key_size=" << request->key_size()
@@ -64,6 +67,7 @@ public:
       for (int i = 0; i < key_size; ++i) {
           _kv_engine->insert(request->key(i), request->value(i));
       }
+      response->set_status(0);
       return;
   }
 private:
