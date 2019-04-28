@@ -10,6 +10,7 @@
 #include "interface/service_brpc.pb.h"
 #include "butil/logging.h"
 #include <brpc/server.h>
+#include "leveldb_engine.h" 
 // using TINYKV::ReqKey;
 // using TINYKV::ReqKeyValue;
 // using TINYKV::RespValue;
@@ -22,11 +23,8 @@ public:
       _kv_engine = new KVEngine();
   }
   virtual ~KVServiceImpl() {}
-  int init() {
-      if (_kv_engine->init() != 0) {
-         return -1;
-      }
-      return 0;
+  bool init() {
+      return _kv_engine->init();
   }
   virtual void Get(::google::protobuf::RpcController* controller,
                        const ::TINYKV::ReqKey* request,
@@ -77,11 +75,12 @@ private:
 int RunServer() {
     // std::string server_address("0.0.0.0:50051");
     brpc::Server server;
-    KVServiceImpl<TINYKV::TinyKV<TINYKV::PlainEngine>> service;
-    // if (service.init() != 0) {
-    //     LOG(WARNING) << "KVServiceImpl init failed.";
-    //     return -1;
-    // }
+    KVServiceImpl<TINYKV::TinyKV<TINYKV::LevelDBEngine>> service;
+    // KVServiceImpl<TINYKV::TinyKV<TINYKV::PlainEngine>> service;
+    if (!service.init()) {
+        LOG(WARNING) << "KVServiceImpl init failed.";
+        return -1;
+    }
     if (server.AddService(&service,
                     brpc::SERVER_DOESNT_OWN_SERVICE) != 0) {
         LOG(ERROR) << "Fail to add service";

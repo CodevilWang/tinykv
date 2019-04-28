@@ -7,7 +7,7 @@
 
 extern int RunServer(); 
 int main(int argc, char** argv) {
-    gflags::ParseCommandLineFlags(&argc, &argv, true);
+    google::ParseCommandLineFlags(&argc, &argv, true);
 #ifndef USING_BRPC
     google::InitGoogleLogging(argv[0]);
 #endif

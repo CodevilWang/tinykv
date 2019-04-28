@@ -10,6 +10,7 @@ class BaseKVEngine {
     public:
         BaseKVEngine() {}
         virtual ~BaseKVEngine() {}
+        virtual bool init() = 0;
         virtual int insert(const std::string& key, const std::string& value) = 0;
         virtual int insert(const std::pair<std::string, std::string>& kv) = 0;
         virtual bool has_key(const std::string& key) = 0;

@@ -13,6 +13,9 @@ class TinyKV {
             }
         }; 
         ~TinyKV() = default;
+        bool init() {
+            return _imp->init();
+        }
         int insert(const std::string& key, const std::string& value) {
             _imp->insert(std::make_pair(key, value));
             return 0;

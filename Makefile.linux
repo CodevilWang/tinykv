@@ -17,8 +17,8 @@ BRPC_ROOT=../brpc/_build/output
 BRPC_INCLUDE=-I$(BRPC_ROOT)/include
 BRPC_LIBS=-L$(BRPC_ROOT)/lib/ -lbrpc
 
-LIBS=-L$(THIRDPARTY)/protobuf/lib/ $(BRPC_LIBS) $(GLOG_GFLAG_LIBS)
-INCLUDES = $(LOCAL_INCLUDES) $(BRPC_INCLUDE) $(GLOG_GFLAG_INCLUDE) -I$(THIRDPARTY)/protobuf/include
+LIBS=-L$(THIRDPARTY)/protobuf/lib/ $(BRPC_LIBS) $(GLOG_GFLAG_LIBS) -L$(THIRDPARTY)/leveldb/lib -lleveldb
+INCLUDES = $(LOCAL_INCLUDES) $(BRPC_INCLUDE) $(GLOG_GFLAG_INCLUDE) -I$(THIRDPARTY)/protobuf/include -I$(THIRDPARTY)/leveldb/include
 # RPC_TYPE=GRPC
 # LOCAL_LIBS = -L./src/interface -linterface_brpc
 ifeq ($(RPC_TYPE), GRPC)

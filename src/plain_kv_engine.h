@@ -7,6 +7,9 @@
 namespace TINYKV {
 class PlainEngine : public BaseKVEngine {
     public:
+        bool init() {
+            return true;
+        }
         int insert(const std::string& key, const std::string& value) {
             _map.insert(std::make_pair(key, value));
             return 0;
