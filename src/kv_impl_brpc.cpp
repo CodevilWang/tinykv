@@ -11,6 +11,7 @@
 #include "butil/logging.h"
 #include <brpc/server.h>
 #include "leveldb_engine.h" 
+#include "lmdb_engine.h" 
 // using TINYKV::ReqKey;
 // using TINYKV::ReqKeyValue;
 // using TINYKV::RespValue;
@@ -75,7 +76,8 @@ private:
 int RunServer() {
     // std::string server_address("0.0.0.0:50051");
     brpc::Server server;
-    KVServiceImpl<TINYKV::TinyKV<TINYKV::LevelDBEngine>> service;
+    // KVServiceImpl<TINYKV::TinyKV<TINYKV::LevelDBEngine>> service;
+    KVServiceImpl<TINYKV::TinyKV<TINYKV::LMDBEngine>> service;
     // KVServiceImpl<TINYKV::TinyKV<TINYKV::PlainEngine>> service;
     if (!service.init()) {
         LOG(WARNING) << "KVServiceImpl init failed.";

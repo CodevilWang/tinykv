@@ -1,3 +1,3 @@
 #!/bin/bash
 export DYLD_LIBRARY_PATH=../brpc/_build/output/lib
-./main &
+./main -v 16 &

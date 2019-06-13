@@ -52,28 +52,13 @@ class LevelDBEngine : public BaseKVEngine {
             return true;
         }
         int insert(const std::string& key, const std::string& value) {
-            // TODO(use template to check)
-            
             LevelOpRet f = std::bind(&leveldb::DB::Put, (leveldb::DB*)_db.get(),
                                std::placeholders::_1, std::placeholders::_2,
                                std::placeholders::_3); 
-            // const leveldb::Slice& key_s = key;
-            // const leveldb::Slice& value_s = value;
-            // return leveldb_work(f, std::string("Put"), leveldb::WriteOptions(), (const leveldb::Slice&)key, (const leveldb::Slice&)value);
             return leveldb_work(f, std::string("Put"), leveldb::WriteOptions(), key, value);
-            // leveldb::Status status = _db->Put(leveldb::WriteOptions(), key, value);
-            // if (!status.ok()) {
-            //      LOG(ERROR) << "Put " << key << " " << value << " failed.";
-            //      return 1;
-            // }
         }
         int insert(const std::pair<std::string, std::string>& kv) {
-            leveldb::Status status = _db->Put(leveldb::WriteOptions(), kv.first, kv.second);
-            if (!status.ok()) {
-                 LOG(ERROR) << "Put " << kv.first << " " << kv.second << " failed.";
-                 return 1;
-            }
-            return 0;
+            return insert(kv.first, kv.second);
         }
         bool has_key(const std::string& key) {
             std::string value;

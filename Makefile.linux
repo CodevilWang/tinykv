@@ -1,6 +1,6 @@
 HOST_SYSTEM = $(shell uname | cut -f 1 -d_)
 SYSTEM ?= $(HOST_SYSTEM)
-CXX = g++ 
+include common.mk
 SRCS=src/*cpp
 CPPFLAGS=--std=c++11
 #GLOG & GFLAGS
@@ -17,8 +17,8 @@ BRPC_ROOT=../brpc/_build/output
 BRPC_INCLUDE=-I$(BRPC_ROOT)/include
 BRPC_LIBS=-L$(BRPC_ROOT)/lib/ -lbrpc
 
-LIBS=-L$(THIRDPARTY)/protobuf/lib/ $(BRPC_LIBS) $(GLOG_GFLAG_LIBS) -L$(THIRDPARTY)/leveldb/lib -lleveldb
-INCLUDES = $(LOCAL_INCLUDES) $(BRPC_INCLUDE) $(GLOG_GFLAG_INCLUDE) -I$(THIRDPARTY)/protobuf/include -I$(THIRDPARTY)/leveldb/include
+LIBS=-L$(THIRDPARTY)/protobuf/lib/ $(BRPC_LIBS) $(GLOG_GFLAG_LIBS) -L$(THIRDPARTY)/leveldb/lib -lleveldb -L$(THIRDPARTY)/liblmdb -llmdb
+INCLUDES = $(LOCAL_INCLUDES) $(BRPC_INCLUDE) $(GLOG_GFLAG_INCLUDE) -I$(THIRDPARTY)/protobuf/include -I$(THIRDPARTY)/leveldb/include -I$(THIRDPARTY)/liblmdb
 # RPC_TYPE=GRPC
 # LOCAL_LIBS = -L./src/interface -linterface_brpc
 ifeq ($(RPC_TYPE), GRPC)
@@ -40,7 +40,7 @@ endif
 
 ifeq ($(SYSTEM), Linux)
 LDFLAGS += $(LIBS) \
-           -ldl -Wl,-rpath=$(BRPC_ROOT)/lib/
+           -ldl -Wl,-rpath=$(BRPC_ROOT)/lib/ -Wl,-rpath=$(THIRDPARTY)/liblmdb
 else
 LDFLAGS += -L/usr/local/lib $(LIBS) \
            -Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed \
