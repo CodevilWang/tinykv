@@ -26,6 +26,7 @@ class TinyKV {
         }
         int get(const std::string& key, std::string* value) {
             if (!_imp->has_key(key)) {
+                fprintf(stderr, "get %s failed.\n", key.c_str());
                 return -1;
             }
             *value = (*_imp)[key];

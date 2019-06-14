@@ -126,7 +126,7 @@ int main(int argc, char** argv) {
     // single thread insert
     for (int i = 0; i < keys.size(); ++i) {
       kv_client.insert(keys[i], values[i]);
-      // kv_client.get(keys[i]);
+      kv_client.get(keys[i]);
     }
     return 0;
 }

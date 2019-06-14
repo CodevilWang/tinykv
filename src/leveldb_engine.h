@@ -8,7 +8,7 @@
 #include "base_kv_engine.h" 
 #include "leveldb/db.h"
 #include "gflags/gflags.h"
-DEFINE_string(leveldb_dir, "./db", "leveldb local dir");
+DECLARE_string(db_dir);
 namespace TINYKV {
 template<typename T, typename... Args>
 void args_str(std::ostringstream& oss, T&& t, Args&&... args) {
@@ -43,9 +43,9 @@ class LevelDBEngine : public BaseKVEngine {
             leveldb::Options options;
             options.create_if_missing = true;
             leveldb::DB* db;
-            leveldb::Status status = leveldb::DB::Open(options, FLAGS_leveldb_dir, &db);
+            leveldb::Status status = leveldb::DB::Open(options, FLAGS_db_dir, &db);
             if (!status.ok()) {
-                LOG(ERROR) << "open leveldb [" << FLAGS_leveldb_dir << "] failed.";
+                LOG(ERROR) << "open leveldb [" << FLAGS_db_dir << "] failed.";
                 return false;
             }
             _db.reset(db);

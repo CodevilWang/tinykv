@@ -17,6 +17,7 @@
 // using TINYKV::RespValue;
 
 // Logic and data behind the server's behavior.
+DEFINE_string(db_dir, "./db", "local db dir");
 template <class KVEngine>
 class KVServiceImpl final : public TINYKV::KVService {
 public:
