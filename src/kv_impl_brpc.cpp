@@ -18,6 +18,7 @@
 
 // Logic and data behind the server's behavior.
 DEFINE_string(db_dir, "./db", "local db dir");
+DEFINE_string(db_type, "plain", "local db engine type");
 template <class KVEngine>
 class KVServiceImpl final : public TINYKV::KVService {
 public:
@@ -74,17 +75,41 @@ private:
   KVEngine* _kv_engine;
 };
 
+#define SERVICE_IMPL_PTR(ENGINE_TYPE) \
+  do { \
+      auto service_impl_ptr = new(std::nothrow)KVServiceImpl<TINYKV::TinyKV<ENGINE_TYPE>>(); \
+      if (!service_impl_ptr->init()) { \
+          LOG(WARNING) << "service_impl_ptr init failed."; \
+          return -1; \
+      } \
+      service.reset(service_impl_ptr); \
+  } while(0);
+
 int RunServer() {
     // std::string server_address("0.0.0.0:50051");
     brpc::Server server;
     // KVServiceImpl<TINYKV::TinyKV<TINYKV::LevelDBEngine>> service;
-    KVServiceImpl<TINYKV::TinyKV<TINYKV::LMDBEngine>> service;
-    // KVServiceImpl<TINYKV::TinyKV<TINYKV::PlainEngine>> service;
-    if (!service.init()) {
-        LOG(WARNING) << "KVServiceImpl init failed.";
-        return -1;
+    std::unique_ptr<TINYKV::KVService> service(nullptr); 
+    if (FLAGS_db_type == "plain") {
+        SERVICE_IMPL_PTR(TINYKV::PlainEngine);
     }
-    if (server.AddService(&service,
+
+    if (FLAGS_db_type == "lmdb") {
+        // service.reset(new(std::nothrow)KVServiceImpl<TINYKV::TinyKV<TINYKV::LevelDBEngine>>());
+        SERVICE_IMPL_PTR(TINYKV::LMDBEngine);
+    }
+
+    if (FLAGS_db_type == "leveldb") {
+        SERVICE_IMPL_PTR(TINYKV::LevelDBEngine);
+    }
+
+    // KVServiceImpl<TINYKV::TinyKV<TINYKV::LMDBEngine>> service;
+    // KVServiceImpl<TINYKV::TinyKV<TINYKV::PlainEngine>> service;
+    // if (!service->init()) {
+    //     LOG(WARNING) << "KVServiceImpl init failed.";
+    //     return -1;
+    // }
+    if (server.AddService(service.get(),
                     brpc::SERVER_DOESNT_OWN_SERVICE) != 0) {
         LOG(ERROR) << "Fail to add service";
         return -1;
