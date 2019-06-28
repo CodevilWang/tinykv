@@ -12,6 +12,7 @@
 #include <brpc/server.h>
 #include "leveldb_engine.h" 
 #include "lmdb_engine.h" 
+#include "gperftools/profiler.h"
 // using TINYKV::ReqKey;
 // using TINYKV::ReqKeyValue;
 // using TINYKV::RespValue;
@@ -33,6 +34,7 @@ public:
                        const ::TINYKV::ReqKey* request,
                        ::TINYKV::RespValue* response,
                        ::google::protobuf::Closure* done) {
+    ProfilerStart("/tmp/prof.res");
     brpc::ClosureGuard done_guard(done);
     if (request->key_size() == 0) {
         LOG(ERROR) << "Reqid=" << request->qid() << " miss request key.";
@@ -49,6 +51,7 @@ public:
         }
     }
     response->set_status(0);
+    ProfilerStop();
     return;
   }
   virtual void Insert(::google::protobuf::RpcController* controller,
